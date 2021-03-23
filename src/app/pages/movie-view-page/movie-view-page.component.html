@@ -1,0 +1,67 @@
+<div class="movie-view" *ngIf="movie$ | async as movie" [class.active]="(status$ | async) === 'done'">
+  <div class="cover-box">
+    <div class="rating">{{movie.imdbRating}}</div>
+    <img
+      class="cover-bg-blur"
+      *ngIf="movie.Poster !== 'N/A'"
+      [src]="
+        movie.Poster !== 'N/A' ? movie.Poster : '/assets/images/default.png'
+      "
+    />
+    <img
+      class="cover-bg"
+      [src]="
+        movie.Poster !== 'N/A' ? movie.Poster : '/assets/images/default.png'
+      "
+    />
+  </div>
+
+  <div class="info-box">
+    <h1>{{ movie.Title }}</h1>
+    <h3>({{ movie.Year }})</h3>
+    <div class="details">
+      <div class="set">
+        <div class="key">Director: </div>
+        <div class="val">{{ movie.Director }}</div>
+      </div>
+
+      <div class="set">
+        <div class="key">Released:</div>
+        <div class="val">{{ movie.Released }}</div>
+      </div>
+
+      <div class="set">
+        <div class="key">Genre:</div>
+        <div class="val">{{ movie.Genre }}</div>
+      </div>
+
+      <div class="set">
+        <div class="key">Language:</div>
+        <div class="val">{{ movie.Language }}</div>
+      </div>
+      <div class="set">
+        <div class="key">Country:</div>
+        <div class="val">{{ movie.Country }}</div>
+      </div>
+      <div class="set">
+        <div class="key">Runtime:</div>
+        <div class="val">{{ movie.Runtime }}</div>
+      </div>
+
+      <div class="set full">
+        <div class="key">Actors:</div>
+        <div class="val">{{movie.Actors}}</div>
+    </div>
+
+      <div class="set full">
+          <div class="key">Writer(s):</div>
+          <div class="val">{{movie.Writer}}</div>
+      </div>
+    </div>
+
+    <div class="plot">
+        <h2>Plot</h2>
+        <p>{{movie.Plot}}</p>
+    </div>
+  </div>
+</div>

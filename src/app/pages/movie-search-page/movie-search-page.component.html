@@ -1,0 +1,13 @@
+<div class="movie-search-page">
+    <div class="search-header">
+        <input #searchInput class="search-input" placeholder="Search by Movie Title" />
+    </div>
+
+    <div class="movie-list">
+        <ng-container *ngIf="(movies$ | async)?.movies as movies">
+            <div *ngFor="let movie of movies" class="movieitem">
+                <app-movie-item [routerLink]="'/movies/' + movie.imdbID" [movie]="movie"></app-movie-item>
+            </div>
+        </ng-container>
+    </div>
+</div>

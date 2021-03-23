@@ -1,0 +1,88 @@
+:host{
+    .movie-view{
+        @apply w-full grid grid-cols-1 lg:grid-cols-3;
+        opacity: 0;
+        transition: all 0.4s ease;
+
+        &.active{
+            opacity: 1;
+        }
+
+        .cover-box{
+            @apply col-span-1 relative h-auto lg:h-screen max-h-80 lg:max-h-screen;
+            width: 100%;
+
+            .rating{
+                @apply px-3 py-3 text-2xl shadow-xl font-extrabold text-yellow-400;
+                position: absolute;
+                right: 0;
+                top: 0;
+                border-bottom-left-radius: 6px;
+                background-color: #fffc;
+                z-index: 20;
+            }
+
+            .cover-bg-blur{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: blur(15px);
+                opacity: 0.95;
+            }
+
+            .cover-bg{
+                @apply scale-100 sm:scale-50 md:scale-50 relative;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                z-index: 10;
+            }
+        }
+
+        .info-box{
+            @apply col-span-1 lg:col-span-2 bg-gray-900 h-auto md:h-screen relative text-gray-50 px-0 md:px-6 py-6;
+
+
+            h1{
+                @apply text-3xl font-bold inline-block mr-2 border-b-2 border-gray-700 pb-2 mb-2 ml-3;
+            }
+
+            h3{
+                @apply text-2xl font-medium inline-block ml-2;
+                opacity: 0.8;
+            }
+
+            .details{
+                @apply w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 my-3 px-3 py-4;
+
+                .set{
+                    @apply col-span-1 mt-3;
+
+                    .key{
+                        @apply font-bold text-sm mr-3 block;
+                        opacity: 0.7;
+                    }
+
+                    .val{
+                        @apply text-sm;
+                    }
+
+                    &.full{
+                        @apply col-span-2 md:col-span-3 lg:col-span-3;
+                    }
+                }
+            }
+
+            .plot{
+                @apply rounded-lg px-3 py-4;
+                background-color: #fff1;
+
+                h2{
+                    @apply text-xl font-bold pb-1 mb-3 border-b border-gray-600;
+                    opacity: 0.75;
+                }
+            }
+        }
+    }
+}

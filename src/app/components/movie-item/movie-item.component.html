@@ -1,0 +1,8 @@
+<div class="movie-card">
+    <img class="cover" [src]="movie.Poster === 'N/A' ? '/assets/images/default.png' : movie.Poster" alt="" />
+    <div class="content">
+        <div class="title">{{movie.Title}}</div>
+        <div class="author">{{movie.Director}}</div>
+        <div class="year">{{movie.Year}}</div>
+    </div>
+</div>

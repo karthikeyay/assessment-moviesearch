@@ -1,0 +1,25 @@
+:host{
+    .movie-search-page{
+        @apply w-full relative pt-16;
+
+        .search-header{
+            @apply absolute w-full flex justify-center px-6 py-4;
+            top: 0;
+
+            .search-input{
+                @apply w-full px-3 py-2 shadow-md transition-all rounded focus:shadow-xl outline-none border-2 border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+                max-width: 320px;
+
+            }
+        }
+
+        .movie-list{
+            @apply mt-10 w-full px-4 pb-10 grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 md:gap-10 mx-auto;
+            max-width: 1000px;
+
+            .movieitem{
+                @apply col-span-1;                
+            }
+        }
+    }
+}

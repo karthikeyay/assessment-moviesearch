@@ -1,0 +1,29 @@
+:host{
+    @apply rounded-lg shadow-lg block hover:shadow-2xl transition-all mb-4;
+    overflow: hidden;
+    cursor: pointer;
+
+    .movie-card{
+        height: 320px;
+        @apply bg-gray-50 hover:bg-white relative;
+
+        .cover{
+            position: relative;
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border: 0;
+            background-color: theme('backgroundColor.gray.200');
+        }
+
+        .content{
+            @apply w-full px-3 py-2;
+            .title{
+                @apply text-sm font-extrabold mb-1;
+            }
+            .year{
+                @apply text-xs;
+            }
+        }
+    }
+}
