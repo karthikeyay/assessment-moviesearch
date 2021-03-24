@@ -14,11 +14,38 @@
         }
 
         .movie-list{
-            @apply mt-10 w-full px-4 pb-10 grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 md:gap-10 mx-auto;
+            @apply mt-10 w-full px-4 pb-10 grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 md:gap-10 mx-auto relative;
             max-width: 1000px;
 
             .movieitem{
                 @apply col-span-1;                
+            }
+
+            .empty-message, .loading-indicator{
+                @apply absolute mx-auto;
+                top: 30vh;
+                left: 0;
+                right: 0;
+                width: fit-content;
+            }
+
+            .empty-message{
+                @apply text-lg;
+                span{
+                    @apply font-bold;
+                }
+            }
+
+            .loading-indicator{
+                span{
+                    @apply animate-spin;
+                    display: inline-block;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 500px;
+                    border: 5px solid theme('backgroundColor.indigo.500');
+                    border-top: 5px solid transparent;
+                }
             }
         }
     }

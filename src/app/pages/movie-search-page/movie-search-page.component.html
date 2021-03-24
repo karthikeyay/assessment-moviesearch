@@ -5,8 +5,18 @@
 
     <div class="movie-list">
         <ng-container *ngIf="(movies$ | async)?.movies as movies">
-            <div *ngFor="let movie of movies" class="movieitem">
-                <app-movie-item [routerLink]="'/movies/' + movie.imdbID" [movie]="movie"></app-movie-item>
+            <ng-container *ngIf="(status$ | async) !== 'loading'">
+                <div *ngFor="let movie of movies" class="movieitem">
+                    <app-movie-item [routerLink]="'/movies/' + movie.imdbID" [movie]="movie"></app-movie-item>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="(status$ | async) as status">
+            <div class="loading-indicator" *ngIf="status === 'loading'">
+                <span></span>
+            </div>
+            <div class="empty-message" *ngIf="status === 'done' && !(movies$ | async)?.movies?.length && searchInput.value.length > 2">
+                No movies found with <span>"{{searchInput?.value}}"</span>
             </div>
         </ng-container>
     </div>

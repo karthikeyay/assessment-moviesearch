@@ -29,13 +29,17 @@ export class MovieSearchPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild('searchInput', { static: false }) sinput: ElementRef;
   searchSub$: Subscription;
   movies$: Observable<MoviesState>;
+  status$: Observable<any>;
 
-  constructor(private store: Store<{ movies: MoviesState }>, private router: Router) {
+  constructor(
+    private store: Store<{ movies: MoviesState }>,
+    private router: Router
+  ) {
     this.movies$ = store.select((state) => state.movies);
+    this.status$ = store.select((state) => state.movies.status);
   }
 
   ngAfterViewInit() {
-
     (this.sinput.nativeElement as HTMLInputElement).focus();
 
     this.searchSub$ = fromEvent<KeyboardEvent>(
@@ -58,6 +62,6 @@ export class MovieSearchPageComponent implements AfterViewInit, OnDestroy {
   }
 
   openMovie(movie: Movie) {
-    this.router.navigate(['/movies/'+movie.imdbID])
+    this.router.navigate(['/movies/' + movie.imdbID]);
   }
 }
